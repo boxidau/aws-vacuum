@@ -1,0 +1,21 @@
+{
+  "name": "aws-vacuum",
+  "description": "AWS Account Cleaner",
+  "runtime": "python27",
+  "handler": "clean.lambda_handler",
+  "memory": 128,
+  "timeout": 120,
+  "policy": {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Action": [
+          "ec2:DescribeInstances",
+          "ec2:TerminateInstances"
+        ],
+        "Effect": "Allow",
+        "Resource": "*"
+      }
+    ]
+  }
+}
